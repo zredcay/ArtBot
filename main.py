@@ -3,6 +3,7 @@ import random
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+from keep_alive import keep_alive
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -49,4 +50,5 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You do not have the correct role for this command.')
 
+keep_alive()
 bot.run(TOKEN)
